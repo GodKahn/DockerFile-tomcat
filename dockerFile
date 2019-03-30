@@ -17,5 +17,5 @@ ENV JAVA_HOME=/jdk1.8.0_152
 ENV PATH=$PATH:/jdk1.8.0_152/bin
 CMD ["/apache-tomcat-8.5.39/bin/catalina.sh", "run"]
 
-
+EXPOSE 8888
 
