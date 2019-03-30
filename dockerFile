@@ -1,0 +1,21 @@
+FROM ubuntu:latest
+
+MAINTAINER kahn
+
+RUN apt-get update \
+    && apt-get install -y wget \
+    && rm -rf /var/lib/apt/lists/* 
+
+RUN cd /
+
+ADD jdk-8u152-linux-x64.tar.gz /
+
+RUN wget https://www.apache.org/dist/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz
+RUN tar zxvf apache-tomcat-8.5.39.tar.gz
+
+ENV JAVA_HOME=/jdk1.8.0_152
+ENV PATH=$PATH:/jdk1.8.0_152/bin
+CMD ["/apache-tomcat-8.5.39/bin/catalina.sh", "run"]
+
+
+
